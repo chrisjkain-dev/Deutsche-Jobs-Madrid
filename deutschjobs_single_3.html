@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeutschJobs Madrid — Deutschsprachige Jobs in Madrid</title>
+  <meta name="description" content="Verifizierte deutschsprachige Jobs in Madrid mit transparenten Gehältern, Antwortzeiten und Bewerbungsprozessen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --cream: #FAFAF7;
+  --cream-2: #F1EFE8;
+  --cream-3: #E8E6DE;
+  --ink: #1E1E1C;
+  --ink-2: #3D3D3A;
+  --ink-3: #5F5E5A;
+  --ink-4: #888780;
+  --indigo: #1A56A0;
+  --indigo-mid: #2870C8;
+  --indigo-light: #EBF3FD;
+  --indigo-border: #93C0EE;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --border: #D3D1C7;
+  --border-light: #EBEBEB;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 4px rgba(30,30,28,0.06);
+  --shadow-md: 0 4px 20px rgba(30,30,28,0.10);
+  font-size: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,247,0.97); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); }
+.nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 9px; }
+.logo-flag { display: flex; flex-direction: column; width: 20px; height: 14px; border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+.f-black { flex: 1; background: #1a1a1a; }
+.f-red   { flex: 1; background: #CC0000; }
+.f-gold  { flex: 1; background: #FFCC00; }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; font-size: 14px; }
+.nav-links a { color: var(--ink-3); font-weight: 400; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.btn-nav { background: var(--indigo); color: #fff !important; padding: 8px 20px; border-radius: var(--radius-sm); font-weight: 500 !important; font-size: 13px !important; transition: background 0.2s !important; }
+.btn-nav:hover { background: var(--indigo-mid) !important; }
+.nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-burger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+.nav-mobile { display: none; flex-direction: column; border-top: 0.5px solid var(--border); padding: 0.5rem 2rem 1rem; }
+.nav-mobile a { display: block; padding: 10px 0; font-size: 15px; color: var(--ink-2); border-bottom: 0.5px solid var(--border-light); }
+.nav-mobile.open { display: flex; }
+
+/* HERO */
+.hero { background: #fff; border-bottom: 0.5px solid var(--border); padding: 5rem 2rem 4rem; }
+.hero-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--indigo-light); color: var(--indigo); font-size: 12px; font-weight: 500; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.5rem; letter-spacing: 0.03em; }
+.hero-title { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 600; line-height: 1.2; color: var(--ink); margin-bottom: 1.25rem; }
+.hero-title em { font-style: italic; color: var(--indigo-mid); }
+.hero-sub { font-size: 16px; color: var(--ink-3); line-height: 1.75; margin-bottom: 2rem; }
+.btn-primary { display: inline-block; background: var(--indigo); color: #fff; padding: 13px 32px; border-radius: var(--radius-md); font-size: 15px; font-weight: 500; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-primary:hover { background: var(--indigo-mid); transform: translateY(-1px); }
+.btn-secondary { display: inline-block; background: transparent; color: var(--indigo); padding: 11px 28px; border-radius: var(--radius-md); font-size: 14px; font-weight: 500; border: 1px solid var(--indigo-border); transition: background 0.2s; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-secondary:hover { background: var(--indigo-light); }
+.stats { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid var(--border-light); }
+.stat { text-align: center; }
+.stat-n { display: block; font-family: 'Lora', serif; font-size: 28px; font-weight: 600; color: var(--indigo-mid); line-height: 1; }
+.stat-l { display: block; font-size: 12px; color: var(--ink-4); margin-top: 4px; }
+.stat-divider { width: 1px; height: 36px; background: var(--border); }
+
+/* TRUST BAR */
+.trust-bar { background: var(--indigo); padding: 1rem 2rem; }
+.trust-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.88); }
+.trust-item svg { opacity: 0.75; flex-shrink: 0; }
+
+/* JOBS */
+.jobs-section { padding: 4rem 2rem; }
+.jobs-inner { max-width: 1100px; margin: 0 auto; }
+.jobs-layout { display: grid; grid-template-columns: 260px 1fr; gap: 2.5rem; align-items: start; }
+.jobs-sidebar { position: sticky; top: 80px; }
+.sidebar-box { background: #fff; border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1rem; }
+.sidebar-box:last-child { margin-bottom: 0; }
+.sidebar-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+.sidebar-sub { font-size: 13px; color: var(--ink-4); margin-bottom: 1.25rem; line-height: 1.6; }
+.open-count-big { display: flex; align-items: baseline; gap: 6px; margin-bottom: 1.25rem; }
+.open-count-big .num { font-family: 'Lora', serif; font-size: 42px; font-weight: 600; color: var(--indigo); line-height: 1; }
+.open-count-big .label { font-size: 13px; color: var(--ink-4); }
+.sidebar-divider { height: 0.5px; background: var(--border-light); margin: 1rem 0; }
+.sidebar-stat { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; }
+.sidebar-stat:last-child { margin-bottom: 0; }
+.sidebar-stat-label { color: var(--ink-3); }
+.sidebar-stat-value { font-weight: 500; color: var(--ink); }
+.sidebar-cta { background: var(--indigo); color: #fff; border: none; width: 100%; padding: 11px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; text-align: center; display: block; }
+.sidebar-cta:hover { background: var(--indigo-mid); }
+.jobs-right { min-width: 0; }
+.section-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; }
+.section-title { font-family: 'Lora', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.section-sub { font-size: 13px; color: var(--ink-4); }
+.open-count { background: var(--indigo); color: #fff; font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.jobs-list { display: flex; flex-direction: column; gap: 1rem; }
+.job-card { background: #fff; border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; animation: fadeUp 0.4s ease both; }
+.job-card:nth-child(1) { animation-delay: 0.05s; }
+.job-card:nth-child(2) { animation-delay: 0.12s; }
+.job-card:nth-child(3) { animation-delay: 0.19s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.job-card:hover { border-color: var(--indigo-border); box-shadow: var(--shadow-md); }
+.job-card-inner { padding: 1.5rem; }
+.job-top { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+.company-logo { width: 48px; height: 48px; border-radius: 10px; border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; flex-shrink: 0; letter-spacing: 0.02em; }
+.job-meta { flex: 1; min-width: 0; }
+.job-title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.job-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: var(--ink); }
+.verified-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 4px; white-space: nowrap; }
+.job-company { font-size: 13px; color: var(--indigo-mid); font-weight: 500; margin-bottom: 8px; }
+.job-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 4px; border: 0.5px solid var(--border); color: var(--ink-3); background: var(--cream-2); }
+.tag-de { background: var(--indigo-light); border-color: var(--indigo-border); color: var(--indigo); }
+.job-desc { font-size: 14px; line-height: 1.7; color: var(--ink-3); margin-bottom: 1.25rem; padding-top: 1rem; border-top: 0.5px solid var(--cream-3); }
+.job-transparency { display: flex; background: var(--cream); border: 0.5px solid var(--border-light); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 1.25rem; }
+.transp-item { flex: 1; padding: 10px 14px; border-right: 0.5px solid var(--border-light); }
+.transp-item:last-child { border-right: none; }
+.transp-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-4); margin-bottom: 3px; }
+.transp-value { display: block; font-size: 13px; font-weight: 500; color: var(--ink); }
+.job-footer { display: flex; justify-content: flex-end; }
+.btn-apply { background: var(--indigo); color: #fff; border: none; padding: 10px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s, transform 0.15s; }
+.btn-apply:hover { background: var(--indigo-mid); transform: translateY(-1px); }
+
+/* EMPTY STATE */
+.empty-state { text-align: center; padding: 4rem 2rem; background: #fff; border: 0.5px solid var(--border); border-radius: var(--radius-lg); }
+.empty-icon { font-size: 40px; margin-bottom: 1rem; }
+.empty-text { font-size: 16px; color: var(--ink-3); max-width: 420px; margin: 0 auto 1.5rem; line-height: 1.7; }
+
+/* ABOUT STRIP */
+.about-strip { background: var(--indigo-light); border-top: 0.5px solid var(--indigo-border); border-bottom: 0.5px solid var(--indigo-border); padding: 4rem 2rem; }
+.about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.about-text h2 { font-family: 'Lora', serif; font-size: 26px; font-weight: 600; color: var(--indigo); margin-bottom: 1rem; line-height: 1.3; }
+.about-text p { font-size: 14px; color: var(--ink-3); line-height: 1.8; margin-bottom: 1.5rem; }
+.about-card { background: #fff; border: 0.5px solid var(--indigo-border); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.about-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--indigo); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.about-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+.about-role { font-size: 12px; color: var(--ink-4); margin-top: 2px; }
+.about-quote { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: var(--indigo); line-height: 1.6; padding-left: 1rem; border-left: 2px solid var(--indigo-border); }
+
+/* FOOTER */
+.footer { background: #fff; border-top: 0.5px solid var(--border); padding: 2.5rem 2rem; }
+.footer-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+.footer-logo { font-family: 'Lora', serif; font-size: 16px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.footer-links a { font-size: 13px; color: var(--ink-4); transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+.footer-copy { font-size: 12px; color: var(--ink-4); }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(30,30,28,0.5); z-index: 100; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(2px); }
+.modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal { background: #fff; border-radius: var(--radius-lg); border: 0.5px solid var(--border); width: 100%; max-width: 520px; padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; animation: slideUp 0.25s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.modal-close { position: absolute; top: 16px; right: 18px; background: var(--cream-2); border: none; cursor: pointer; color: var(--ink-3); font-size: 14px; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.modal-close:hover { background: var(--cream-3); }
+.modal-header { margin-bottom: 1.5rem; }
+.modal-title { font-family: 'Lora', serif; font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.modal-subtitle { font-size: 13px; color: var(--indigo-mid); font-weight: 500; }
+.form-row { margin-bottom: 14px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: block; font-size: 12px; color: var(--ink-3); margin-bottom: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.optional { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-4); }
+input[type="text"], input[type="email"], input[type="tel"], textarea, select { width: 100%; border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 13px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--cream); outline: none; transition: border-color 0.2s, background 0.2s; }
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus { border-color: var(--indigo-mid); background: #fff; }
+input[type="text"].invalid, input[type="email"].invalid, input[type="tel"].invalid { border-color: #CC0000; }
+input[type="file"] { width: 100%; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--ink-3); padding: 9px 0; cursor: pointer; }
+.btn-submit { width: 100%; background: var(--indigo); color: #fff; border: none; padding: 13px; border-radius: var(--radius-md); font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 8px; transition: background 0.2s; }
+.btn-submit:hover { background: var(--indigo-mid); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-error { background: #FFF0F0; border: 0.5px solid #F0C0C0; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13px; color: #8B1A1A; margin-bottom: 14px; }
+.file-error { font-size: 12px; color: #8B1A1A; margin-top: 6px; line-height: 1.6; }
+.file-error a { color: var(--indigo); text-decoration: underline; }
+.form-success { text-align: center; padding: 1.5rem 0; }
+.success-icon { width: 52px; height: 52px; background: var(--green-light); color: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 600; margin: 0 auto 1rem; }
+.form-success h3 { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.form-success p { font-size: 14px; color: var(--ink-3); }
+.form-fail { background: #FFF0F0; border: 0.5px solid #F0C0C0; border-radius: var(--radius-sm); padding: 14px; font-size: 13px; color: #8B1A1A; line-height: 1.6; }
+.form-fail a { color: var(--indigo); text-decoration: underline; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .jobs-layout { grid-template-columns: 1fr; }
+  .jobs-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .jobs-sidebar .sidebar-box { margin-bottom: 0; }
+}
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .stats { gap: 1rem; }
+  .stat-n { font-size: 22px; }
+  .trust-inner { gap: 1rem; }
+  .trust-item { font-size: 12px; }
+  .jobs-sidebar { grid-template-columns: 1fr; }
+  .section-header { flex-direction: column; gap: 0.75rem; }
+  .job-top { flex-direction: column; }
+  .job-transparency { flex-direction: column; }
+  .transp-item { border-right: none; border-bottom: 0.5px solid var(--border-light); }
+  .transp-item:last-child { border-bottom: none; }
+  .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .form-grid { grid-template-columns: 1fr; }
+  .modal { padding: 1.5rem; }
+}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-flag" aria-hidden="true">
+          <span class="f-black"></span><span class="f-red"></span><span class="f-gold"></span>
+        </span>
+        DeutschJobs Madrid
+      </a>
+      <div class="nav-links">
+        <a href="#jobs">Stellen</a>
+        <a href="#about">Über uns</a>
+        <a href="#jobs" class="btn-nav">Jetzt bewerben</a>
+      </div>
+      <button class="nav-burger" aria-label="Menü öffnen" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#jobs" onclick="toggleMenu()">Stellen</a>
+      <a href="#about" onclick="toggleMenu()">Über uns</a>
+      <a href="#jobs" onclick="toggleMenu()">Jetzt bewerben</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">🇩🇪 Nur für deutschsprachige Jobs in Madrid</div>
+      <h1 class="hero-title">Deine Karriere in Madrid.<br><em>Auf Deutsch.</em></h1>
+      <p class="hero-sub">Verifizierte Stellen. Echte Gehälter. Keine Ghosting-Unternehmen.<br>Wir kennen Madrid — und wir kennen dich.</p>
+      <a href="#jobs" class="btn-primary">Alle Stellen ansehen</a>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-n">47</span>
+          <span class="stat-l">offene Stellen</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-n">120+</span>
+          <span class="stat-l">Bewerbungen vermittelt</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-n">38</span>
+          <span class="stat-l">verifizierte Unternehmen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Jedes Unternehmen persönlich geprüft
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Transparente Antwortzeiten
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Echte Gehälter angegeben
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+        Kleines Team. Echter Kontakt.
+      </div>
+    </div>
+  </div>
+
+  <section class="jobs-section" id="jobs">
+    <div class="jobs-inner">
+      <div class="jobs-layout">
+
+        <!-- SIDEBAR LEFT -->
+        <aside class="jobs-sidebar">
+          <div class="sidebar-box">
+            <div class="sidebar-title">Offene Stellen</div>
+            <div class="sidebar-sub">Alle Unternehmen verifiziert — kein Ghosting.</div>
+            <div class="open-count-big">
+              <span class="num">47</span>
+              <span class="label">offen</span>
+            </div>
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat-label">Platzierungen</span>
+              <span class="sidebar-stat-value">120+</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat-label">Partner</span>
+              <span class="sidebar-stat-value">38 Firmen</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat-label">Ø Antwortzeit</span>
+              <span class="sidebar-stat-value">3–5 Tage</span>
+            </div>
+          </div>
+          <div class="sidebar-box">
+            <div class="sidebar-title" style="font-size:15px; margin-bottom:8px;">Neu in Madrid?</div>
+            <p style="font-size:12px; color:var(--ink-3); line-height:1.6; margin-bottom:12px;">Wir kennen die Stadt. Schreib uns — wir helfen dir beim Start.</p>
+            <a href="mailto:hallo@deutschjobsmadrid.com" class="sidebar-cta">Kontakt aufnehmen</a>
+          </div>
+        </aside>
+
+        <!-- JOBS RIGHT -->
+        <div class="jobs-right">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Aktuelle Stellenangebote</h2>
+              <p class="section-sub">Persönlich geprüft. Transparent. Keine Überraschungen.</p>
+            </div>
+          </div>
+
+          <div class="jobs-list" id="jobsList">
+
+        <article class="job-card">
+          <div class="job-card-inner">
+            <div class="job-top">
+              <div class="company-logo" style="background:#EEEDFE;color:#3C3489;">BCG</div>
+              <div class="job-meta">
+                <div class="job-title-row">
+                  <h3 class="job-title">Senior Consultant — Digital Strategy</h3>
+                  <span class="verified-badge">
+                    <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    Verifiziert
+                  </span>
+                </div>
+                <div class="job-company">Boston Consulting Group · Madrid</div>
+                <div class="job-tags">
+                  <span class="tag tag-de">Deutsch C1+</span>
+                  <span class="tag">Vollzeit</span>
+                  <span class="tag">Beratung</span>
+                </div>
+              </div>
+            </div>
+            <p class="job-desc">Als Teil unseres deutschsprachigen Teams in Madrid begleiten Sie internationale Klienten bei digitalen Transformationsprojekten. BCG Madrid ist ein wachsendes Zentrum für europäische und lateinamerikanische Märkte.</p>
+            <div class="job-transparency">
+              <div class="transp-item">
+                <span class="transp-label">Gehalt</span>
+                <span class="transp-value">65.000 – 85.000 €</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Antwortzeit</span>
+                <span class="transp-value">~3 Werktage</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Prozessdauer</span>
+                <span class="transp-value">3–4 Wochen</span>
+              </div>
+            </div>
+            <div class="job-footer">
+              <button class="btn-apply" onclick="openModal(0)">Jetzt bewerben →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-inner">
+            <div class="job-top">
+              <div class="company-logo" style="background:#E1F5EE;color:#0F6E56;">SUM</div>
+              <div class="job-meta">
+                <div class="job-title-row">
+                  <h3 class="job-title">Kundenberater DACH — FinTech</h3>
+                  <span class="verified-badge">
+                    <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    Verifiziert
+                  </span>
+                </div>
+                <div class="job-company">SumUp Europe · Madrid</div>
+                <div class="job-tags">
+                  <span class="tag tag-de">Deutsch Muttersprache</span>
+                  <span class="tag">Hybrid</span>
+                  <span class="tag">Customer Support</span>
+                </div>
+              </div>
+            </div>
+            <p class="job-desc">SumUp, Europas führendes FinTech für KMU-Zahlungslösungen, sucht einen engagierten Kundenberater für den DACH-Markt. Von Madrid aus betreust du deutsche Geschäftskunden — mit Sonne garantiert.</p>
+            <div class="job-transparency">
+              <div class="transp-item">
+                <span class="transp-label">Gehalt</span>
+                <span class="transp-value">38.000 – 46.000 €</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Antwortzeit</span>
+                <span class="transp-value">~5 Werktage</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Prozessdauer</span>
+                <span class="transp-value">2–3 Wochen</span>
+              </div>
+            </div>
+            <div class="job-footer">
+              <button class="btn-apply" onclick="openModal(1)">Jetzt bewerben →</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-inner">
+            <div class="job-top">
+              <div class="company-logo" style="background:#FAEEDA;color:#633806;">TUI</div>
+              <div class="job-meta">
+                <div class="job-title-row">
+                  <h3 class="job-title">Content Strategist — DACH Markt</h3>
+                  <span class="verified-badge">
+                    <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    Verifiziert
+                  </span>
+                </div>
+                <div class="job-company">TUI Group — Hub Madrid</div>
+                <div class="job-tags">
+                  <span class="tag tag-de">Deutsch C2</span>
+                  <span class="tag">Remote-freundlich</span>
+                  <span class="tag">Marketing</span>
+                </div>
+              </div>
+            </div>
+            <p class="job-desc">Entwickle Content-Strategien für den deutschen Reisemarkt vom sonnigen Madrid aus. TUIs europäisches Content-Hub wächst und sucht kreative Köpfe mit Leidenschaft für Sprache und Reisen.</p>
+            <div class="job-transparency">
+              <div class="transp-item">
+                <span class="transp-label">Gehalt</span>
+                <span class="transp-value">42.000 – 55.000 €</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Antwortzeit</span>
+                <span class="transp-value">~4 Werktage</span>
+              </div>
+              <div class="transp-item">
+                <span class="transp-label">Prozessdauer</span>
+                <span class="transp-value">3 Wochen</span>
+              </div>
+            </div>
+            <div class="job-footer">
+              <button class="btn-apply" onclick="openModal(2)">Jetzt bewerben →</button>
+            </div>
+          </div>
+        </article>
+
+          </div><!-- /jobs-list -->
+
+          <div class="empty-state" id="emptyState" style="display:none;">
+            <div class="empty-icon">📭</div>
+            <p class="empty-text">Gerade ist keine Stelle offen — aber schick uns deine Daten und wir benachrichtigen dich als Erstes, wenn sich das ändert.</p>
+            <button class="btn-primary" onclick="openNotifyModal()">Benachrichtigung erhalten</button>
+          </div>
+
+        </div><!-- /jobs-right -->
+      </div><!-- /jobs-layout -->
+    </div><!-- /jobs-inner -->
+  </section>
+
+  <section class="about-strip" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Wir sind kein Algorithmus.<br>Wir sind ein Team.</h2>
+        <p>DeutschJobs Madrid wurde von deutschsprachigen Expats gegründet, die selbst durch den Madrider Jobmarkt navigiert haben. Wir kennen die Fragen, die Unsicherheiten — und die besten Unternehmen in der Stadt.</p>
+        <a href="#jobs" class="btn-secondary">Alle Stellen ansehen</a>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-avatar">DJM</div>
+          <div>
+            <div class="about-name">Das DeutschJobs Team</div>
+            <div class="about-role">Deutschsprachig · Madrid-basiert · Erreichbar</div>
+          </div>
+        </div>
+        <div class="about-quote">"Jedes Unternehmen, das wir listen, haben wir persönlich kennengelernt."</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-flag" aria-hidden="true">
+          <span class="f-black"></span><span class="f-red"></span><span class="f-gold"></span>
+        </span>
+        DeutschJobs Madrid
+      </div>
+      <div class="footer-links">
+        <a href="#jobs">Stellen</a>
+        <a href="#about">Über uns</a>
+        <a href="mailto:hallo@deutschjobsmadrid.com">Kontakt</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+      </div>
+      <div class="footer-copy">© 2025 DeutschJobs Madrid · Madrid, España</div>
+    </div>
+  </footer>
+
+  <!-- APPLY MODAL -->
+  <div class="modal-overlay" id="applyModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Bewerbung</h2>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <form id="applyForm" novalidate>
+        <div class="form-error" id="formError" style="display:none;">Oops. Du hast noch etwas vergessen auszufüllen. Bitte prüfe es noch einmal.</div>
+        <div class="form-row form-grid">
+          <div>
+            <label for="firstName">Vorname *</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Max" required />
+          </div>
+          <div>
+            <label for="lastName">Nachname *</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Müller" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="email">E-Mail *</label>
+          <input type="email" id="email" name="email" placeholder="max.mueller@email.de" required />
+        </div>
+        <div class="form-row">
+          <label for="phone">Telefon *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" required />
+        </div>
+        <div class="form-row">
+          <label for="cvUpload">Lebenslauf <span class="optional">(optional, max. 5 MB)</span></label>
+          <input type="file" id="cvUpload" name="cv" accept=".pdf,.doc,.docx" />
+          <div class="file-error" id="fileError" style="display:none;">Das Hochladen hat nicht funktioniert. Sende deine Bewerbung gerne ohne CV und schicke ihn an <a href="mailto:hallo@deutschjobsmadrid.com">hallo@deutschjobsmadrid.com</a></div>
+        </div>
+        <input type="hidden" name="job" id="hiddenJob" />
+        <button type="submit" class="btn-submit" id="submitBtn">Bewerbung absenden</button>
+      </form>
+      <div class="form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Bewerbung erfolgreich gesendet!</h3>
+        <p>Wir melden uns in Kürze. Kein Ghosting — versprochen.</p>
+      </div>
+      <div class="form-fail" id="formFail" style="display:none;">Aufgrund eines technischen Fehlers hat es nicht geklappt. Schreibe uns direkt an <a href="mailto:hallo@deutschjobsmadrid.com">hallo@deutschjobsmadrid.com</a> und wir helfen dir weiter.</div>
+    </div>
+  </div>
+
+  <!-- NOTIFY MODAL -->
+  <div class="modal-overlay" id="notifyModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeNotifyModal()">✕</button>
+      <div class="modal-header">
+        <h2 class="modal-title">Benachrichtigung erhalten</h2>
+        <div class="modal-subtitle">Wir informieren dich, sobald neue Stellen verfügbar sind.</div>
+      </div>
+      <form id="notifyForm" novalidate>
+        <div class="form-error" id="notifyError" style="display:none;">Oops. Du hast noch etwas vergessen auszufüllen. Bitte prüfe es noch einmal.</div>
+        <div class="form-row">
+          <label for="notifyName">Name *</label>
+          <input type="text" id="notifyName" placeholder="Max Müller" required />
+        </div>
+        <div class="form-row">
+          <label for="notifyEmail">E-Mail *</label>
+          <input type="email" id="notifyEmail" placeholder="max.mueller@email.de" required />
+        </div>
+        <button type="submit" class="btn-submit">Benachrichtigen</button>
+      </form>
+      <div class="form-success" id="notifySuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Eingetragen!</h3>
+        <p>Du erfährst als Erstes von neuen Stellen.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const jobs = [
+  { title: 'Senior Consultant — Digital Strategy', company: 'Boston Consulting Group · Madrid' },
+  { title: 'Kundenberater DACH — FinTech', company: 'SumUp Europe · Madrid' },
+  { title: 'Content Strategist — DACH Markt', company: 'TUI Group — Hub Madrid' }
+];
+
+function toggleMenu() {
+  document.getElementById('navMobile').classList.toggle('open');
+}
+
+function openModal(i) {
+  const job = jobs[i];
+  document.getElementById('modalTitle').textContent = job.title;
+  document.getElementById('modalSubtitle').textContent = job.company;
+  document.getElementById('hiddenJob').value = job.title;
+  document.getElementById('applyForm').style.display = 'block';
+  document.getElementById('applyForm').reset();
+  document.getElementById('formSuccess').style.display = 'none';
+  document.getElementById('formFail').style.display = 'none';
+  document.getElementById('formError').style.display = 'none';
+  document.getElementById('fileError').style.display = 'none';
+  document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+  document.getElementById('applyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('applyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openNotifyModal() {
+  document.getElementById('notifyForm').style.display = 'block';
+  document.getElementById('notifyForm').reset();
+  document.getElementById('notifySuccess').style.display = 'none';
+  document.getElementById('notifyError').style.display = 'none';
+  document.getElementById('notifyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNotifyModal() {
+  document.getElementById('notifyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('applyModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+document.getElementById('notifyModal').addEventListener('click', function(e) { if (e.target === this) closeNotifyModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeNotifyModal(); } });
+
+document.getElementById('cvUpload').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  const maxSize = 5 * 1024 * 1024;
+  const allowed = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+  if (!allowed.includes(file.type) || file.size > maxSize) {
+    this.value = '';
+    document.getElementById('fileError').style.display = 'block';
+  } else {
+    document.getElementById('fileError').style.display = 'none';
+  }
+});
+
+document.getElementById('applyForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const firstName = document.getElementById('firstName');
+  const lastName  = document.getElementById('lastName');
+  const email     = document.getElementById('email');
+  const phone     = document.getElementById('phone');
+  document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+  document.getElementById('formError').style.display = 'none';
+  let hasError = false;
+  [firstName, lastName, email, phone].forEach(f => { if (!f.value.trim()) { f.classList.add('invalid'); hasError = true; } });
+  if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.classList.add('invalid'); hasError = true; }
+  if (hasError) { document.getElementById('formError').style.display = 'block'; return; }
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Wird gesendet…';
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+    if (res.ok) { this.style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; }
+    else throw new Error();
+  } catch { this.style.display = 'none'; document.getElementById('formFail').style.display = 'block'; }
+  finally { btn.disabled = false; btn.textContent = 'Bewerbung absenden'; }
+});
+
+document.getElementById('notifyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('notifyName');
+  const email = document.getElementById('notifyEmail');
+  document.getElementById('notifyError').style.display = 'none';
+  [name, email].forEach(f => f.classList.remove('invalid'));
+  let hasError = false;
+  [name, email].forEach(f => { if (!f.value.trim()) { f.classList.add('invalid'); hasError = true; } });
+  if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.classList.add('invalid'); hasError = true; }
+  if (hasError) { document.getElementById('notifyError').style.display = 'block'; return; }
+  this.style.display = 'none';
+  document.getElementById('notifySuccess').style.display = 'block';
+});
+
+// Set SHOW_EMPTY = true to preview the empty state
+const SHOW_EMPTY = false;
+if (SHOW_EMPTY) {
+  document.getElementById('jobsList').style.display = 'none';
+  document.getElementById('emptyState').style.display = 'block';
+}
+  </script>
+</body>
+</html>
